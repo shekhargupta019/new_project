@@ -1,10 +1,10 @@
-
 .app {
   min-height: 100vh;
   background: #f8f7f4;
   color: #202124;
 }
 
+/* Header */
 .site-header {
   background: #a51f2b;
   color: #fff;
@@ -15,20 +15,73 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* Brand and logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.brand-logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  object-fit: contain;
+}
+
+.brand-copy {
+  min-width: 0;
 }
 
 .brand-name {
   color: #fff;
+  font-size: 30px !important;
+  line-height: 1.2 !important;
   font-weight: 800 !important;
+  letter-spacing: -0.5px;
 }
 
 .brand-tagline {
-  margin-top: 4px !important;
+  margin-top: 5px !important;
   color: #fbe8e9;
+  font-size: 14px !important;
 }
 
+/* Language switcher */
+.header-inner .language-switcher {
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 6px;
+}
+
+.language-switcher .MuiToggleButton-root {
+  padding: 7px 12px;
+  color: #a51f2b;
+  border-color: #e8d0d2;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.language-switcher .MuiToggleButton-root.Mui-selected {
+  background: #a51f2b;
+  color: #fff;
+}
+
+.language-switcher .MuiToggleButton-root.Mui-selected:hover {
+  background: #801923;
+}
+
+.language-switcher .MuiToggleButton-root:hover {
+  background: #f9e9ea;
+}
+
+/* Navigation */
 .site-navigation {
   background: #fff;
   border-bottom: 1px solid #e8e5e0;
@@ -40,6 +93,11 @@
   gap: 26px;
   overflow-x: auto;
   white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.navigation-inner::-webkit-scrollbar {
+  display: none;
 }
 
 .navigation-item {
@@ -49,18 +107,26 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.navigation-item:hover,
+.navigation-item.active {
+  color: #a51f2b;
 }
 
 .navigation-item.active {
-  color: #a51f2b;
   border-bottom: 3px solid #a51f2b;
 }
 
+/* Homepage layout */
 .home-content {
   padding-top: 28px;
   padding-bottom: 48px;
 }
 
+/* Breaking news */
 .breaking-news {
   display: flex;
   align-items: center;
@@ -85,13 +151,16 @@
   padding: 7px 10px;
   background: #f9e9ea;
   border-radius: 4px;
+  flex-shrink: 0;
 }
 
+/* Section headings */
 .section-title {
   margin-bottom: 18px !important;
   font-weight: 800 !important;
 }
 
+/* Featured story */
 .featured-story {
   margin-bottom: 36px;
   padding: 36px;
@@ -106,6 +175,7 @@
   font-weight: 800;
 }
 
+/* News cards */
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -118,6 +188,14 @@
   background: #fff;
   border: 1px solid #e8e5e0;
   border-radius: 10px;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 7%);
 }
 
 .news-card-image {
@@ -128,36 +206,107 @@
 }
 
 .news-card .story-category {
+  display: block;
   margin-bottom: 8px;
 }
 
 .news-card h6 {
   margin-bottom: 10px;
+  font-weight: 700;
 }
 
+/* Tablet */
+@media (max-width: 900px) {
+  .navigation-inner {
+    gap: 20px;
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
 @media (max-width: 700px) {
   .header-inner {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .brand {
+    gap: 10px;
+    flex: 1 1 100%;
+  }
+
+  .brand-logo {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
   }
 
   .brand-name {
-    font-size: 26px !important;
+    font-size: 21px !important;
+    letter-spacing: -0.3px;
+  }
+
+  .brand-tagline {
+    font-size: 12px !important;
+  }
+
+  .header-inner .language-switcher {
+    margin-left: 62px;
   }
 
   .navigation-inner {
     gap: 20px;
   }
 
-  .news-grid {
-    grid-template-columns: 1fr;
+  .navigation-item {
+    padding: 13px 0;
+    font-size: 13px;
+  }
+
+  .home-content {
+    padding-top: 20px;
+    padding-bottom: 32px;
+  }
+
+  .breaking-news {
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 8px 10px;
+    font-size: 13px;
   }
 
   .featured-story {
     padding: 24px;
+    margin-bottom: 28px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .news-card-image {
     height: 190px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 380px) {
+  .brand-name {
+    font-size: 18px !important;
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .header-inner .language-switcher {
+    margin-left: 54px;
   }
 }

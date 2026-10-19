@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./components/layout/LanguageSwitcher";
+import talkTantraLogo from "./assets/images/talk-tantra-logo.png";
 import "./App.css";
 
 const navigationKeys = [
@@ -24,13 +25,22 @@ export default function App() {
       <header className="site-header">
         <Container maxWidth="lg" className="header-inner">
           <Box className="brand">
-            <Typography variant="h4" component="div" className="brand-name">
-              {t("brand.name")}
-            </Typography>
-            <Typography className="brand-tagline">
-              {t("brand.tagline")}
-            </Typography>
+            <img
+              className="brand-logo"
+              src={talkTantraLogo}
+              alt="Talk Tantra India logo"
+            />
+
+            <Box className="brand-copy">
+              <Typography variant="h4" component="div" className="brand-name">
+                {t("brand.name")}
+              </Typography>
+              <Typography className="brand-tagline">
+                {t("brand.tagline")}
+              </Typography>
+            </Box>
           </Box>
+
           <LanguageSwitcher />
         </Container>
       </header>
