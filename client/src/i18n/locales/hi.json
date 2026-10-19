@@ -1,0 +1,33 @@
+{
+  "brand": {
+    "name": "टॉक तंत्रा इंडिया",
+    "tagline": "खबरें जो मायने रखती हैं"
+  },
+  "navigation": {
+    "home": "होम",
+    "india": "देश",
+    "uttarPradesh": "उत्तर प्रदेश",
+    "politics": "राजनीति",
+    "business": "व्यापार",
+    "world": "दुनिया",
+    "sports": "खेल",
+    "entertainment": "मनोरंजन",
+    "technology": "टेक्नोलॉजी"
+  },
+  "news": {
+    "breaking": "ब्रेकिंग न्यूज़",
+    "topStories": "प्रमुख खबरें",
+    "latestNews": "ताज़ा खबरें",
+    "featuredStory": "खास खबर",
+    "readMore": "पूरी खबर पढ़ें",
+    "viewAll": "सभी देखें",
+    "search": "खबरें खोजें...",
+    "noResults": "कोई खबर नहीं मिली"
+  },
+  "common": {
+    "english": "English",
+    "hindi": "हिन्दी",
+    "loading": "लोड हो रहा है...",
+    "published": "प्रकाशित"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "brand": {
+    "name": "TALK TANTRA INDIA",
+    "tagline": "News that matters"
+  },
+  "navigation": {
+    "home": "Home",
+    "india": "India",
+    "uttarPradesh": "Uttar Pradesh",
+    "politics": "Politics",
+    "business": "Business",
+    "world": "World",
+    "sports": "Sports",
+    "entertainment": "Entertainment",
+    "technology": "Technology"
+  },
+  "news": {
+    "breaking": "Breaking News",
+    "topStories": "Top Stories",
+    "latestNews": "Latest News",
+    "featuredStory": "Featured Story",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "search": "Search news...",
+    "noResults": "No news found"
+  },
+  "common": {
+    "english": "English",
+    "hindi": "हिन्दी",
+    "loading": "Loading...",
+    "published": "Published"
+  }
+}
