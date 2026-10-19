@@ -1,24 +1,25 @@
 
 .language-switcher {
-  background-color: rgb(255 255 255 / 12%);
+  background-color: #fff;
+  border-radius: 6px;
 }
 
 .language-switcher .MuiToggleButton-root {
   padding: 6px 12px;
-  border-color: rgb(255 255 255 / 35%);
-  color: #ffffff;
+  color: #a51f2b;
+  border-color: #e8d0d2;
   font-weight: 600;
 }
 
 .language-switcher .MuiToggleButton-root.Mui-selected {
-  background-color: #ffffff;
-  color: #a51f2b;
+  background-color: #a51f2b;
+  color: #fff;
 }
 
 .language-switcher .MuiToggleButton-root.Mui-selected:hover {
-  background-color: #f5f5f5;
+  background-color: #801923;
 }
 
 .language-switcher .MuiToggleButton-root:hover {
-  background-color: rgb(255 255 255 / 10%);
+  background-color: #f9e9ea;
 }

@@ -1,122 +1,96 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { Box, Container, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./components/layout/LanguageSwitcher";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const navigationKeys = [
+  "home",
+  "india",
+  "uttarPradesh",
+  "politics",
+  "business",
+  "world",
+  "sports",
+  "entertainment",
+  "technology",
+] as const;
+
+export default function App() {
+  const { t, i18n } = useTranslation();
+  const language = i18n.resolvedLanguage ?? i18n.language;
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <Box className="app" lang={language}>
+      <header className="site-header">
+        <Container maxWidth="lg" className="header-inner">
+          <Box className="brand">
+            <Typography variant="h4" component="div" className="brand-name">
+              {t("brand.name")}
+            </Typography>
+            <Typography className="brand-tagline">
+              {t("brand.tagline")}
+            </Typography>
+          </Box>
+          <LanguageSwitcher />
+        </Container>
+      </header>
 
-      <div className="ticks"></div>
+      <nav className="site-navigation" aria-label="Main navigation">
+        <Container maxWidth="lg" className="navigation-inner">
+          {navigationKeys.map((key) => (
+            <span
+              key={key}
+              className={`navigation-item ${key === "home" ? "active" : ""}`}
+            >
+              {t(`navigation.${key}`)}
+            </span>
+          ))}
+        </Container>
+      </nav>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <main>
+        <Container maxWidth="lg" className="home-content">
+          <div className="breaking-news">
+            <span className="breaking-label">{t("news.breaking")}</span>
+            <span>{t("news.topStories")}</span>
+          </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <Typography variant="h4" component="h1" className="section-title">
+            {t("news.topStories")}
+          </Typography>
+
+          <section className="featured-story">
+            <span className="story-category">{t("navigation.india")}</span>
+            <Typography variant="h3" component="h2">
+              {t("brand.tagline")}
+            </Typography>
+            <Typography color="text.secondary">
+              {t("news.featuredStory")}
+            </Typography>
+          </section>
+
+          <Typography variant="h5" component="h2" className="section-title">
+            {t("news.latestNews")}
+          </Typography>
+
+          <section className="news-grid">
+            {["india", "uttarPradesh", "politics"].map((key) => (
+              <article className="news-card" key={key}>
+                <div className="news-card-image" aria-hidden="true" />
+                <Typography className="story-category">
+                  {t(`navigation.${key}`)}
+                </Typography>
+                <Typography variant="h6">
+                  {t("news.latestNews")} — {t(`navigation.${key}`)}
+                </Typography>
+                <Typography color="text.secondary">
+                  {t("news.featuredStory")}
+                </Typography>
+              </article>
+            ))}
+          </section>
+        </Container>
+      </main>
+    </Box>
+  );
 }
-
-export default App
