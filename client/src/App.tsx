@@ -19,10 +19,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTranslation } from "react-i18next";
-import BreakingNews from "./features/news/BreakingNews";
-import "./App.css";
 
+import BreakingNews from "./features/news/BreakingNews";
+import AdminNews from "./admin/AdminNews";
 import talkTantraLogo from "./assets/images/talk-tantra-logo.png";
+
+import "./App.css";
 
 type NavigationItem = {
   key: string;
@@ -102,6 +104,13 @@ function App() {
   const changeLanguage = (language: "en" | "hi") => {
     void i18n.changeLanguage(language);
   };
+
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  // Keep the admin page separate from the public homepage.
+  if (pathname === "/admin") {
+    return <AdminNews />;
+  }
 
   const filteredStories = stories.filter((story) => {
     const categoryName = t(`navigation.${story.category}`);
@@ -279,6 +288,7 @@ function App() {
                 <Typography className="mobile-drawer-title">
                   {t("brand.name")}
                 </Typography>
+
                 <Typography className="mobile-drawer-tagline">
                   {t("brand.tagline")}
                 </Typography>
@@ -326,15 +336,6 @@ function App() {
       <Box component="main" className="home-content">
         <Container maxWidth="xl">
           <BreakingNews />
-          {/* <Box className="breaking-news">
-            <Typography component="span" className="breaking-label">
-              {t("news.breaking")}
-            </Typography>
-
-            <Typography component="span" className="breaking-text">
-              {t("news.topStories")}
-            </Typography>
-          </Box> */}
 
           <Box className="section-heading">
             <Typography component="h2" className="section-title">
@@ -379,6 +380,7 @@ function App() {
               <Typography component="h2" className="section-title">
                 {t("news.latestNews")}
               </Typography>
+
               <Typography className="story-count">
                 {visibleStories.length}
               </Typography>
@@ -432,10 +434,12 @@ function App() {
           <Box className="footer-inner">
             <Box className="footer-brand">
               <img src={talkTantraLogo} alt="" className="footer-logo" />
+
               <Box>
                 <Typography className="footer-brand-name">
                   {t("brand.name")}
                 </Typography>
+
                 <Typography className="footer-tagline">
                   {t("brand.tagline")}
                 </Typography>

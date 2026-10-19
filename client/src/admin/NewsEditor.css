@@ -1,0 +1,256 @@
+.news-editor-page {
+  min-height: 100vh;
+  padding: 24px 0 48px;
+  background: #f5f6fa;
+}
+
+.news-editor-container {
+  width: 100%;
+}
+
+.news-editor-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.news-editor-back {
+  color: #4b5563;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.news-editor-card {
+  width: 100%;
+  padding: 36px;
+  border: 1px solid #e6e8ef;
+  border-radius: 16px !important;
+  background: #ffffff;
+}
+
+.news-editor-heading {
+  margin-bottom: 32px;
+}
+
+.news-editor-title {
+  margin: 0 0 8px !important;
+  color: #202124;
+  font-size: clamp(1.7rem, 3vw, 2.2rem) !important;
+  font-weight: 750 !important;
+  line-height: 1.25 !important;
+}
+
+.news-editor-subtitle {
+  color: #777b91;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+.news-editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.news-editor-languages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 28px;
+  width: 100%;
+}
+
+.news-editor-language {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+}
+
+.news-editor-language-title {
+  margin: 0 !important;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e7e9f0;
+  color: #292b32;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+}
+
+.news-editor-language .MuiFormControl-root {
+  width: 100%;
+  min-width: 0;
+}
+
+.news-editor-language .MuiInputBase-root {
+  align-items: flex-start;
+  background: #ffffff;
+}
+
+.news-editor-language .MuiInputBase-input,
+.news-editor-language .MuiInputBase-inputMultiline {
+  line-height: 1.65;
+}
+
+.news-editor-language--hindi .MuiInputBase-input,
+.news-editor-language--hindi .MuiInputBase-inputMultiline {
+  font-family: inherit;
+}
+
+.news-editor-language .MuiFormHelperText-root {
+  margin-left: 2px;
+  line-height: 1.5;
+}
+
+.news-editor-metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 28px;
+  border-top: 1px solid #e7e9f0;
+}
+
+.news-editor-section-title {
+  margin: 0 !important;
+  color: #292b32;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+}
+
+.news-editor-metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.news-editor-metadata-grid .MuiFormControl-root {
+  width: 100%;
+  min-width: 0;
+}
+
+.news-editor-metadata-grid .news-editor-image-url {
+  grid-column: 1 / -1;
+}
+
+.news-editor-image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #e7e9f0;
+  border-radius: 12px;
+  background: #fafbfe;
+}
+
+.news-editor-preview-label {
+  color: #62677a;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+}
+
+.news-editor-image-preview img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 280px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.news-editor-image-preview .MuiAlert-root {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.news-editor-save-error {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.news-editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #e7e9f0;
+}
+
+.news-editor-actions .MuiButton-root {
+  min-height: 42px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-weight: 650;
+  text-transform: none;
+}
+
+@media (max-width: 900px) {
+  .news-editor-card {
+    padding: 28px;
+  }
+
+  .news-editor-languages {
+    gap: 20px;
+  }
+
+  .news-editor-language {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-editor-page {
+    padding: 16px 0 32px;
+  }
+
+  .news-editor-card {
+    padding: 22px;
+    border-radius: 12px !important;
+  }
+
+  .news-editor-heading {
+    margin-bottom: 26px;
+  }
+
+  .news-editor-languages {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .news-editor-language {
+    gap: 18px;
+  }
+
+  .news-editor-metadata-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .news-editor-metadata-grid .news-editor-image-url {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-editor-card {
+    padding: 18px 14px;
+  }
+
+  .news-editor-topbar {
+    align-items: flex-start;
+  }
+
+  .news-editor-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .news-editor-actions .MuiButton-root {
+    width: 100%;
+  }
+}
