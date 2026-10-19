@@ -19,6 +19,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTranslation } from "react-i18next";
+import BreakingNews from "./features/news/BreakingNews";
 import "./App.css";
 
 import talkTantraLogo from "./assets/images/talk-tantra-logo.png";
@@ -324,7 +325,8 @@ function App() {
 
       <Box component="main" className="home-content">
         <Container maxWidth="xl">
-          <Box className="breaking-news">
+          <BreakingNews />
+          {/* <Box className="breaking-news">
             <Typography component="span" className="breaking-label">
               {t("news.breaking")}
             </Typography>
@@ -332,7 +334,7 @@ function App() {
             <Typography component="span" className="breaking-text">
               {t("news.topStories")}
             </Typography>
-          </Box>
+          </Box> */}
 
           <Box className="section-heading">
             <Typography component="h2" className="section-title">
